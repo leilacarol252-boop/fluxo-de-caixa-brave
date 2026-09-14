@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fluxo de Caixa — 10/09/2026</title>
+<title>Fluxo de Caixa — 14 a 18/09/2026</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a1a; padding: 24px 16px; }
@@ -20,9 +20,6 @@
   .red .val { color: #c0392b; }
   .orange .val { color: #b75e00; }
   .metric .sub { font-size: 11px; color: #aaa; margin-top: 2px; }
-  .alert-urgente { background: #fdecea; border: 1.5px solid #c0392b; border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; }
-  .alert-urgente .titulo { font-size: 13px; font-weight: 700; color: #b52b1e; margin-bottom: 4px; }
-  .alert-urgente .desc { font-size: 12px; color: #b52b1e; }
   .saldo-box { border-radius: 10px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
   .saldo-pos { background: #eaf7ee; border: 1px solid #a8ddb8; }
   .saldo-neg { background: #fdecea; border: 1px solid #f5b4ae; }
@@ -34,6 +31,7 @@
   .card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e6; overflow: hidden; margin-bottom: 4px; }
   .card-warn { border-color: #f0c060; }
   .card-green { border-color: #7ecb9a; }
+  .card-purple { border-color: #c084fc; }
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   th { text-align: left; font-weight: 600; color: #888; font-size: 11px; padding: 8px 10px; border-bottom: 1px solid #e8e8e6; background: #fafaf8; }
   th.r { text-align: right; }
@@ -44,11 +42,14 @@
   .amt-green { color: #1a8a4a; }
   .amt-orange { color: #b75e00; }
   .amt-blue { color: #1a6fcf; }
+  .amt-purple { color: #7c3aed; }
   .row-hoje { background: #fffbf0; }
   .row-atr { background: #fff5f5; }
+  .row-purple { background: #faf5ff; }
   .row-easyflow { background: #f0fdf4; }
   .total-row td { font-weight: 700; background: #f5f5f3; font-size: 12.5px; }
   .note { font-size: 11px; color: #999; padding: 6px 10px; background: #fafaf8; border-top: 1px solid #f0f0ee; }
+  .note-warn { font-size: 11px; color: #92400e; padding: 8px 12px; background: #fffbeb; border-top: 1px solid #fde68a; font-weight: 500; }
   .tag { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 99px; background: #f0f0ee; color: #666; white-space: nowrap; }
   .tag-red { background: #fdecea; color: #b52b1e; }
   .tag-orange { background: #fff0d6; color: #92400e; }
@@ -66,74 +67,105 @@
 <body>
 
 <h1>Fluxo de Caixa Semanal</h1>
-<p class="subtitle">Semana de 10 a 11/09/2026 &nbsp;·&nbsp; Gerado em 10/09/2026</p>
-
-<!-- ALERTA URGENTE -->
-<div class="alert-urgente">
-  <div class="titulo">🚨 Saldo BTG crítico — R$ 168,63</div>
-  <div class="desc">EasyFlow (R$ 70.985) e clientes de hoje são essenciais para cobrir os R$ 35.319,35 que vencem hoje. Confirme a entrada antes de efetuar pagamentos.</div>
-</div>
+<p class="subtitle">Semana de 14 a 18/09/2026 &nbsp;·&nbsp; Gerado em 14/09/2026</p>
 
 <p class="section-label">Resumo geral</p>
 <div class="metrics">
   <div class="metric blue">
     <div class="lbl">Saldo atual (BTG)</div>
-    <div class="val">R$ 168</div>
-    <div class="sub">Disponível agora</div>
+    <div class="val">R$ 26.301</div>
+    <div class="sub">Disponível em conta agora</div>
   </div>
   <div class="metric green">
-    <div class="lbl">A receber hoje</div>
-    <div class="val">R$ 74.417</div>
-    <div class="sub">EasyFlow + clientes</div>
+    <div class="lbl">A receber até 18/09</div>
+    <div class="val">R$ 45.916</div>
+    <div class="sub">Clientes + EasyFlow</div>
   </div>
   <div class="metric red">
     <div class="lbl">Pagamentos em atraso</div>
-    <div class="val">R$ 282.904</div>
-    <div class="sub">63 fornecedores</div>
+    <div class="val">R$ 278.015</div>
+    <div class="sub">68 fornecedores</div>
   </div>
   <div class="metric orange">
-    <div class="lbl">A pagar hoje + amanhã</div>
-    <div class="val">R$ 36.993</div>
-    <div class="sub">Hoje + Gabriel 11/09</div>
+    <div class="lbl">A pagar até 18/09</div>
+    <div class="val">R$ 103.252</div>
+    <div class="sub">Hoje + próximos dias</div>
   </div>
 </div>
 
-<p class="section-label" style="margin-top:16px;">Saldo estimado em 11/09</p>
+<p class="section-label" style="margin-top:16px;">Saldo estimado em 18/09</p>
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('semana', event)">Só a semana</button>
   <button class="tab-btn" onclick="switchTab('atraso', event)">Incluindo atrasados</button>
+  <button class="tab-btn" onclick="switchTab('folha', event)">🟣 Folha 15/09</button>
 </div>
 <div class="tab-wrap">
   <div class="tab-panel active" id="tab-semana">
     <div class="tab-inner">
-      <div class="saldo-box saldo-pos" style="margin-bottom:0;">
+      <div class="saldo-box saldo-neg" style="margin-bottom:0;">
         <div>
           <div class="slbl">Resultado projetado — sem atrasados</div>
-          <div class="ssub">BTG (168,63) + recebimentos (74.416,69) − pagamentos (35.993,35)</div>
+          <div class="ssub">BTG (26.301,78) + recebimentos (43.849,59) − pagamentos semana (103.251,87)</div>
         </div>
-        <div class="sval">+ R$ 38.591,97</div>
+        <div class="sval">− R$ 33.100,50</div>
       </div>
     </div>
-    <div class="note">Recebimentos atrasados de clientes (R$ 17.249,99) não incluídos acima. Os R$ 282.904 de fornecedores também não — veja aba ao lado.</div>
+    <div class="note">Recebimentos atrasados de clientes (R$ 26.249,99) não incluídos acima. Os R$ 278.015 de fornecedores também não — veja aba ao lado.</div>
   </div>
   <div class="tab-panel" id="tab-atraso">
     <div class="tab-inner">
       <div class="saldo-box saldo-neg" style="margin-bottom:0;">
         <div>
           <div class="slbl">Resultado real — incluindo atrasados</div>
-          <div class="ssub">Saldo semana (+39.660,28) − fornecedores atrasados (282.904,42)</div>
+          <div class="ssub">Saldo semana (−29.140,09) − fornecedores atrasados (278.015,42)</div>
         </div>
-        <div class="sval">− R$ 243.244,14</div>
+        <div class="sval">− R$ 307.155,51</div>
       </div>
     </div>
     <table>
       <tbody>
-        <tr><td style="padding:8px 10px;font-size:12.5px;">Saldo estimado da semana</td><td class="r amt-green" style="padding:8px 10px;font-size:12.5px;">+ R$ 39.660,28</td></tr>
-        <tr><td style="padding:8px 10px;font-size:12.5px;">Fornecedores em atraso</td><td class="r amt-red" style="padding:8px 10px;font-size:12.5px;">− R$ 282.904,42</td></tr>
-        <tr class="total-row"><td style="padding:8px 10px;">Exposição total</td><td class="r amt-red" style="padding:8px 10px;">− R$ 243.244,14</td></tr>
+        <tr><td style="padding:8px 10px;font-size:12.5px;">Saldo estimado da semana</td><td class="r amt-red" style="padding:8px 10px;font-size:12.5px;">− R$ 29.140,09</td></tr>
+        <tr><td style="padding:8px 10px;font-size:12.5px;">Fornecedores em atraso</td><td class="r amt-red" style="padding:8px 10px;font-size:12.5px;">− R$ 278.015,42</td></tr>
+        <tr class="total-row"><td style="padding:8px 10px;">Exposição total</td><td class="r amt-red" style="padding:8px 10px;">− R$ 307.155,51</td></tr>
       </tbody>
     </table>
     <div class="note">⚠️ Cenário de exposição máxima — considera pagamento integral de todos os atrasados de uma vez.</div>
+  </div>
+  <div class="tab-panel" id="tab-folha">
+    <table>
+      <thead>
+        <tr><th>Colaborador / Lançamento</th><th>Categoria</th><th class="r">Valor</th></tr>
+      </thead>
+      <tbody>
+        <tr class="row-purple"><td>Leonardo Vieira Leão</td><td>Distrib. de lucro</td><td class="r amt-purple">R$ 10.000,00</td></tr>
+        <tr class="row-purple"><td>Caio Anderson Farias Gonçalves</td><td>Distrib. de lucro</td><td class="r amt-purple">R$ 10.000,00</td></tr>
+        <tr class="row-purple"><td>Thiago Rodrigues de Castro</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+        <tr class="row-purple"><td>Leila Gabriele de Sousa Paulino</td><td>Salários</td><td class="r amt-purple">R$ 3.500,00</td></tr>
+        <tr class="row-purple"><td>Mariana Ludmilla Silva Lima</td><td>Salários</td><td class="r amt-purple">R$ 2.500,00</td></tr>
+        <tr class="row-purple"><td>Leila Carol de Jesus Silva Gonçalves</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+        <tr class="row-purple"><td>Gabriel Makinski Bendo</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+        <tr class="row-purple"><td>Victor Hugo Xavier Gonçalves</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+        <tr class="row-purple"><td>Sávio Coelho Magalhães Filho</td><td>Salários</td><td class="r amt-purple">R$ 2.250,00</td></tr>
+        <tr class="row-purple"><td>Natália Barbosa Gonzaga Duarte</td><td>Salários</td><td class="r amt-purple">R$ 1.400,00</td></tr>
+        <tr class="row-purple"><td>Alicea Caroline Dias de Oliveira</td><td>Salários</td><td class="r amt-purple">R$ 1.400,00</td></tr>
+        <tr class="row-purple"><td>Camilly Vitória Parra Machado</td><td>Salários</td><td class="r amt-purple">R$ 1.250,00</td></tr>
+        <tr class="row-purple"><td>Emanuel Cesar Chaves Maia Filho</td><td>Salários</td><td class="r amt-purple">R$ 1.750,00</td></tr>
+        <tr class="row-purple"><td>Caju — lançamento 1</td><td>Caju</td><td class="r amt-purple">R$ 2.100,00</td></tr>
+        <tr class="row-purple"><td>Caju — lançamento 2</td><td>Caju</td><td class="r amt-purple">R$ 3.000,00</td></tr>
+        <tr class="row-purple"><td>Caju — lançamento 3</td><td>Caju</td><td class="r amt-purple">R$ 1.000,00</td></tr>
+        <tr class="row-purple"><td>Maria Clara Medeiros Fonseca</td><td>Comissões</td><td class="r amt-purple">R$ 750,00</td></tr>
+        <tr class="row-purple"><td>Bruna Marília Sousa dos Santos</td><td>Comissões</td><td class="r amt-purple">R$ 1.400,00</td></tr>
+        <tr class="row-purple"><td>Sávio Coelho Magalhães Filho</td><td>Bonificações</td><td class="r amt-purple">R$ 800,00</td></tr>
+        <tr class="row-purple"><td>Emanuel Cesar Chaves Maia Filho</td><td>Bonificações</td><td class="r amt-purple">R$ 300,00</td></tr>
+        <tr class="row-purple"><td>Leila Carol de Jesus Silva Gonçalves</td><td>Bonificações</td><td class="r amt-purple">R$ 800,00</td></tr>
+        <tr class="row-purple"><td>Leila Gabriele de Sousa Paulino</td><td>Bonificações</td><td class="r amt-purple">R$ 500,00</td></tr>
+        <tr class="row-purple"><td>Thiago Rodrigues de Castro</td><td>Bonificações</td><td class="r amt-purple">R$ 650,00</td></tr>
+        <tr class="row-purple"><td>Victor Hugo Xavier Gonçalves</td><td>Bonificações</td><td class="r amt-purple">R$ 500,00</td></tr>
+        <tr class="total-row"><td colspan="2">Total da folha</td><td class="r amt-purple">R$ 53.850,00</td></tr>
+        <tr><td colspan="2" style="font-size:12px;color:#888;padding:8px 10px;">Total sem distribuição de lucro</td><td class="r" style="font-size:12px;color:#888;padding:8px 10px;">R$ 33.850,00</td></tr>
+      </tbody>
+    </table>
+    <div class="note-warn">⚠️ Folha incluída na projeção de caixa (vence 15/09). Atenção: distribuição de lucro soma R$ 35.000.</div>
   </div>
 </div>
 
@@ -147,7 +179,6 @@
     <tbody>
       <tr><td>Microsoft</td><td>08/06</td><td>Softwares</td><td class="r amt-red">R$ 564,14</td></tr>
       <tr><td>Microsoft</td><td>23/06</td><td>Softwares</td><td class="r amt-red">R$ 98,18</td></tr>
-      <tr><td>Money Reports</td><td>29/06</td><td>Construção de imagem</td><td class="r amt-red">R$ 27.000,00</td></tr>
       <tr><td>Oracle Netsuite</td><td>30/06</td><td>Softwares</td><td class="r amt-red">R$ 9.550,00</td></tr>
       <tr><td>CM Ibiapina Advogados</td><td>10/07</td><td>Jurídico</td><td class="r amt-red">R$ 2.500,00</td></tr>
       <tr><td>Cond. Torre Sancarlo</td><td>10/07</td><td>Condomínio</td><td class="r amt-red">R$ 1.095,49</td></tr>
@@ -156,10 +187,11 @@
       <tr><td>M Contábil</td><td>20/07</td><td>Contabilidade</td><td class="r amt-red">R$ 1.621,00</td></tr>
       <tr><td>Receita Federal</td><td>20/07</td><td>Simples Nacional</td><td class="r amt-red">R$ 9.697,66</td></tr>
       <tr><td>Altus Home Negócios</td><td>20/07</td><td>Desp. de Viagens</td><td class="r amt-red">R$ 18.600,00</td></tr>
+      <tr><td>Altus Home Negócios</td><td>20/07</td><td>Desp. de Viagens</td><td class="r amt-red">R$ 800,00</td></tr>
       <tr><td>Microsoft</td><td>23/07</td><td>Softwares</td><td class="r amt-red">R$ 98,18</td></tr>
       <tr><td>G4 Educação</td><td>27/07</td><td>Cursos/Trein.</td><td class="r amt-red">R$ 5.305,42</td></tr>
-      <tr><td>VM Turismo</td><td>30/07</td><td>Desp. de Viagens</td><td class="r amt-red">R$ 16.633,90</td></tr>
       <tr><td>Receita Federal</td><td>30/07</td><td>INSS</td><td class="r amt-red">R$ 502,12</td></tr>
+      <tr><td>VM Turismo</td><td>30/07</td><td>Desp. de Viagens</td><td class="r amt-red">R$ 16.633,90</td></tr>
       <tr><td>G4 Club</td><td>01/08</td><td>Treinamento</td><td class="r amt-red">R$ 25.000,00</td></tr>
       <tr><td>Clicksign</td><td>05/08</td><td>Softwares</td><td class="r amt-red">R$ 100,00</td></tr>
       <tr><td>SEFIN Fortaleza</td><td>06/08</td><td>IPTU</td><td class="r amt-red">R$ 88,90</td></tr>
@@ -170,17 +202,14 @@
       <tr><td>Microsoft</td><td>10/08</td><td>Softwares</td><td class="r amt-red">R$ 564,14</td></tr>
       <tr><td>Bradesco Saúde S/A</td><td>10/08</td><td>Acordos</td><td class="r amt-red">R$ 2.905,00</td></tr>
       <tr><td>CM Ibiapina Advogados</td><td>10/08</td><td>Jurídico</td><td class="r amt-red">R$ 2.500,00</td></tr>
-      <tr><td>Canva</td><td>11/08</td><td>Softwares</td><td class="r amt-red">R$ 135,00</td></tr>
-      <tr><td>Pluga</td><td>13/08</td><td>Softwares</td><td class="r amt-red">R$ 209,00</td></tr>
       <tr><td>Receita Federal</td><td>19/08</td><td>INSS</td><td class="r amt-red">R$ 660,00</td></tr>
       <tr><td>Club Coworking</td><td>20/08</td><td>Eventos</td><td class="r amt-red">R$ 10.740,00</td></tr>
-      <tr><td>Club Coworking</td><td>20/08</td><td>Aluguel</td><td class="r amt-red">R$ 99,00</td></tr>
-      <tr><td>Tec Mobile HaaS</td><td>20/08</td><td>Locação equip.</td><td class="r amt-red">R$ 10.535,44</td></tr>
       <tr><td>Club Coworking</td><td>20/08</td><td>Aluguel</td><td class="r amt-red">R$ 4.722,50</td></tr>
+      <tr><td>Tec Mobile HaaS</td><td>20/08</td><td>Locação equip.</td><td class="r amt-red">R$ 10.535,44</td></tr>
+      <tr><td>Club Coworking</td><td>20/08</td><td>Aluguel</td><td class="r amt-red">R$ 99,00</td></tr>
       <tr><td>LF Investimentos</td><td>20/08</td><td>Assessoria</td><td class="r amt-red">R$ 12.000,00</td></tr>
-      <tr><td>M Contábil</td><td>20/08</td><td>Contabilidade</td><td class="r amt-red">R$ 1.621,00</td></tr>
       <tr><td>Receita Federal</td><td>20/08</td><td>Simples Nacional</td><td class="r amt-red">R$ 10.921,08</td></tr>
-      <tr><td>Pipedrive</td><td>20/08</td><td>Softwares</td><td class="r amt-red">R$ 2.500,00</td></tr>
+      <tr><td>M Contábil</td><td>20/08</td><td>Contabilidade</td><td class="r amt-red">R$ 1.621,00</td></tr>
       <tr><td>Adobe</td><td>23/08</td><td>Softwares</td><td class="r amt-red">R$ 275,00</td></tr>
       <tr><td>Microsoft</td><td>23/08</td><td>Softwares</td><td class="r amt-red">R$ 98,18</td></tr>
       <tr><td>G4 Educação</td><td>25/08</td><td>Cursos/Trein.</td><td class="r amt-red">R$ 5.305,42</td></tr>
@@ -189,106 +218,140 @@
       <tr><td>Receita Federal</td><td>28/08</td><td>Simples Nacional</td><td class="r amt-red">R$ 968,13</td></tr>
       <tr><td>Receita Federal</td><td>28/08</td><td>INSS</td><td class="r amt-red">R$ 502,12</td></tr>
       <tr><td>Firecrawl</td><td>29/08</td><td>Softwares</td><td class="r amt-red">R$ 331,00</td></tr>
-      <tr><td>Leonardo Vieira Leão</td><td>30/08</td><td>Distrib. de lucro</td><td class="r amt-red">R$ 10.000,00</td></tr>
-      <tr><td>Caio Anderson Farias Gonçalves</td><td>30/08</td><td>Distrib. de lucro</td><td class="r amt-red">R$ 10.000,00</td></tr>
-      <tr><td>Lolek Viagens</td><td>31/08</td><td>Desp. de Viagens</td><td class="r amt-red">R$ 1.731,26</td></tr>
+      <tr><td>Leonardo Vieira Leão</td><td>30/08</td><td>Distrib. de lucro</td><td class="r amt-red">R$ 1.920,00</td></tr>
+      <tr><td>Caio Anderson Farias Gonçalves</td><td>30/08</td><td>Distrib. de lucro</td><td class="r amt-red">R$ 5.000,00</td></tr>
       <tr><td>Sul América Cia. Seguro Saúde</td><td>31/08</td><td>Plano de saúde</td><td class="r amt-red">R$ 5.366,33</td></tr>
-      <tr><td>Digital Ocean</td><td>01/09</td><td>Softwares</td><td class="r amt-red">R$ 150,00</td></tr>
-      <tr><td>Turbo Cloud</td><td>01/09</td><td>Softwares</td><td class="r amt-red">R$ 189,00</td></tr>
-      <tr><td>G4 Club</td><td>01/09</td><td>Treinamento</td><td class="r amt-red">R$ 25.000,00</td></tr>
+      <tr><td>Lolek Viagens</td><td>31/08</td><td>Desp. de Viagens</td><td class="r amt-red">R$ 1.731,26</td></tr>
       <tr><td>International School</td><td>01/09</td><td>Distrib. de lucro</td><td class="r amt-red">R$ 7.624,82</td></tr>
       <tr><td>Movarte Comércio de Móveis</td><td>01/09</td><td>Locação de móveis</td><td class="r amt-red">R$ 2.807,66</td></tr>
+      <tr><td>G4 Club</td><td>01/09</td><td>Treinamento</td><td class="r amt-red">R$ 25.000,00</td></tr>
+      <tr><td>Digital Ocean</td><td>01/09</td><td>Softwares</td><td class="r amt-red">R$ 150,00</td></tr>
       <tr><td>Typeform</td><td>02/09</td><td>Softwares</td><td class="r amt-red">R$ 600,00</td></tr>
-      <tr><td>Gabriel Makinski Bendo</td><td>04/09</td><td>Reembolso</td><td class="r amt-red">R$ 2.130,13</td></tr>
       <tr><td>Turbo Scribe</td><td>04/09</td><td>Softwares</td><td class="r amt-red">R$ 120,00</td></tr>
+      <tr><td>Gabriel Makinski Bendo</td><td>04/09</td><td>Reembolso</td><td class="r amt-red">R$ 2.130,13</td></tr>
       <tr><td>Clicksign</td><td>05/09</td><td>Softwares</td><td class="r amt-red">R$ 100,00</td></tr>
       <tr><td>Nancy E. M. Tinel</td><td>05/09</td><td>Aluguel</td><td class="r amt-red">R$ 1.800,00</td></tr>
       <tr><td>SEFIN Fortaleza</td><td>06/09</td><td>IPTU</td><td class="r amt-red">R$ 88,90</td></tr>
       <tr><td>LF Investimentos</td><td>08/09</td><td>Assessoria</td><td class="r amt-red">R$ 12.000,00</td></tr>
-      <tr><td>TMB Serviços</td><td>08/09</td><td>Cursos/Trein.</td><td class="r amt-red">R$ 712,38</td></tr>
       <tr><td>Microsoft</td><td>08/09</td><td>Softwares</td><td class="r amt-red">R$ 564,14</td></tr>
-      <tr class="total-row"><td colspan="3">Total em atraso</td><td class="r amt-red">R$ 282.904,42</td></tr>
+      <tr><td>TMB Serviços</td><td>08/09</td><td>Cursos/Trein.</td><td class="r amt-red">R$ 712,38</td></tr>
+      <tr><td>Senhor PC Comercial</td><td>10/09</td><td>Softwares</td><td class="r amt-red">R$ 3.190,20</td></tr>
+      <tr><td>Cond. Torre Sancarlo</td><td>10/09</td><td>Condomínio</td><td class="r amt-red">R$ 1.095,49</td></tr>
+      <tr><td>The Members</td><td>10/09</td><td>Softwares</td><td class="r amt-red">R$ 690,00</td></tr>
+      <tr><td>Emanuel Cesar Chaves Maia Filho</td><td>10/09</td><td>Salários</td><td class="r amt-red">R$ 1.750,00</td></tr>
+      <tr><td>Banco Bradesco S.A.</td><td>10/09</td><td>Carta de crédito</td><td class="r amt-red">R$ 845,41</td></tr>
+      <tr><td>Salvy</td><td>10/09</td><td>Telefonia</td><td class="r amt-red">R$ 587,90</td></tr>
+      <tr><td>CM Ibiapina Advogados</td><td>10/09</td><td>Jurídico</td><td class="r amt-red">R$ 2.500,00</td></tr>
+      <tr><td>Oracle Netsuite</td><td>10/09</td><td>Softwares</td><td class="r amt-red">R$ 9.550,00</td></tr>
+      <tr><td>Mac Transporte Executivo</td><td>10/09</td><td>Motorista/Uber</td><td class="r amt-red">R$ 5.585,00</td></tr>
+      <tr><td>Gabriel Makinski Bendo</td><td>11/09</td><td>Softwares</td><td class="r amt-red">R$ 674,00</td></tr>
+      <tr><td>Canva</td><td>11/09</td><td>Softwares</td><td class="r amt-red">R$ 135,00</td></tr>
+      <tr class="total-row"><td colspan="3">Total em atraso</td><td class="r amt-red">R$ 277.066,42</td></tr>
     </tbody>
   </table>
 </div>
 
 <!-- VENCE HOJE -->
-<p class="section-label" style="margin-top:20px;">🔴 Vence hoje — 10/09/2026</p>
+<p class="section-label" style="margin-top:20px;">🔴 Vence hoje — 14/09/2026</p>
 <div class="card card-warn">
   <table>
     <thead>
       <tr><th>Fornecedor</th><th>Categoria</th><th class="r">Valor</th></tr>
     </thead>
     <tbody>
-      <tr class="row-hoje"><td>CM Ibiapina Advogados</td><td>Jurídico</td><td class="r amt-orange">R$ 2.500,00</td></tr>
-      <tr class="row-hoje"><td>Senhor PC Comercial</td><td>Softwares</td><td class="r amt-orange">R$ 3.190,20</td></tr>
-      <tr class="row-hoje"><td>The Members</td><td>Softwares</td><td class="r amt-orange">R$ 690,00</td></tr>
-      <tr class="row-hoje"><td>Salvy</td><td>Telefonia</td><td class="r amt-orange">R$ 587,90</td></tr>
-      <tr class="row-hoje"><td>Cond. Torre Sancarlo</td><td>Condomínio</td><td class="r amt-orange">R$ 1.095,49</td></tr>
-      <tr class="row-hoje"><td>Banco Bradesco S.A.</td><td>Carta de crédito</td><td class="r amt-orange">R$ 845,41</td></tr>
-      <tr class="row-hoje"><td>Omiexperience</td><td>Softwares</td><td class="r amt-orange">R$ 949,00</td></tr>
-      <tr class="row-hoje"><td>Oracle Netsuite</td><td>Softwares</td><td class="r amt-orange">R$ 9.550,00</td></tr>
-      <tr class="row-hoje"><td>Cartão Inter Paulo</td><td>Inter Paulo</td><td class="r amt-orange">R$ 2.302,57</td></tr>
-      <tr class="row-hoje"><td>Mac Transporte Executivo</td><td>Motorista/Uber</td><td class="r amt-orange">R$ 5.585,00</td></tr>
-      <tr class="row-hoje"><td>Cartão BB Paulo</td><td>BB Paulo</td><td class="r amt-orange">R$ 6.024,88</td></tr>
-      <tr class="row-hoje"><td>Grok IA</td><td>Reembolso Cleiton</td><td class="r amt-orange">R$ 1.999,90</td></tr>
-      <tr class="total-row"><td colspan="2">Total vence hoje</td><td class="r amt-orange">R$ 35.319,35</td></tr>
+      <tr class="row-hoje"><td colspan="3" style="color:#888;font-style:italic;font-size:12px;">Nenhum pagamento vence hoje.</td></tr>
     </tbody>
   </table>
 </div>
 
 <!-- A VENCER -->
-<p class="section-label" style="margin-top:20px;">📅 A vencer — 11/09/2026</p>
+<p class="section-label" style="margin-top:20px;">📅 A vencer — 15 a 18/09/2026</p>
 <div class="card">
   <table>
     <thead>
       <tr><th>Fornecedor</th><th>Vence em</th><th>Categoria</th><th class="r">Valor</th></tr>
     </thead>
     <tbody>
-      <tr><td>Gabriel Makinski Bendo</td><td>11/09</td><td>Reembolso Softwares</td><td class="r">R$ 674,00</td></tr>
-      <tr class="total-row"><td colspan="3">Total a vencer (11/09)</td><td class="r">R$ 674,00</td></tr>
+      <tr class="row-purple"><td>Emanuel Cesar Chaves Maia Filho</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 1.750,00</td></tr>
+      <tr class="row-purple"><td>Caju (lançamento 1)</td><td>15/09</td><td>Caju</td><td class="r amt-purple">R$ 2.100,00</td></tr>
+      <tr class="row-purple"><td>Caju (lançamento 2)</td><td>15/09</td><td>Caju</td><td class="r amt-purple">R$ 3.000,00</td></tr>
+      <tr class="row-purple"><td>Caju (lançamento 3)</td><td>15/09</td><td>Caju</td><td class="r amt-purple">R$ 1.000,00</td></tr>
+      <tr class="row-purple"><td>Victor Hugo Xavier Gonçalves</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+      <tr class="row-purple"><td>Natália Barbosa Gonzaga Duarte</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 1.400,00</td></tr>
+      <tr class="row-purple"><td>Sávio Coelho Magalhães Filho</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 2.250,00</td></tr>
+      <tr class="row-purple"><td>Leila Gabriele de Sousa Paulino</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 3.500,00</td></tr>
+      <tr class="row-purple"><td>Mariana Ludmilla Silva Lima</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 2.500,00</td></tr>
+      <tr class="row-purple"><td>Leila Carol de Jesus Silva Gonçalves</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+      <tr class="row-purple"><td>Gabriel Makinski Bendo</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+      <tr class="row-purple"><td>Alicea Caroline Dias de Oliveira</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 1.400,00</td></tr>
+      <tr class="row-purple"><td>Brave Geral — Aluguel</td><td>15/09</td><td>Aluguel</td><td class="r amt-purple">R$ 17.250,00</td></tr>
+      <tr class="row-purple"><td>Camilly Vitória Parra Machado</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 1.250,00</td></tr>
+      <tr class="row-purple"><td>Leonardo Vieira Leão</td><td>15/09</td><td>Distrib. de lucro</td><td class="r amt-purple">R$ 10.000,00</td></tr>
+      <tr class="row-purple"><td>Mauro Vicente de Azevedo P. dos Santos</td><td>15/09</td><td>Distrib. de lucro</td><td class="r amt-purple">R$ 15.000,00</td></tr>
+      <tr class="row-purple"><td>Cartão Visa</td><td>15/09</td><td>Cartão</td><td class="r amt-purple">R$ 336,85</td></tr>
+      <tr class="row-purple"><td>Caio Anderson Farias Gonçalves</td><td>15/09</td><td>Distrib. de lucro</td><td class="r amt-purple">R$ 10.000,00</td></tr>
+      <tr class="row-purple"><td>Maria Clara Medeiros Fonseca</td><td>15/09</td><td>Comissões</td><td class="r amt-purple">R$ 750,00</td></tr>
+      <tr class="row-purple"><td>Sávio Coelho Magalhães Filho</td><td>15/09</td><td>Bonificações</td><td class="r amt-purple">R$ 800,00</td></tr>
+      <tr class="row-purple"><td>Emanuel Cesar Chaves Maia Filho</td><td>15/09</td><td>Bonificações</td><td class="r amt-purple">R$ 300,00</td></tr>
+      <tr class="row-purple"><td>Leila Carol de Jesus Silva Gonçalves</td><td>15/09</td><td>Bonificações</td><td class="r amt-purple">R$ 800,00</td></tr>
+      <tr class="row-purple"><td>Leila Gabriele de Sousa Paulino</td><td>15/09</td><td>Bonificações</td><td class="r amt-purple">R$ 500,00</td></tr>
+      <tr class="row-purple"><td>Thiago Rodrigues de Castro</td><td>15/09</td><td>Bonificações</td><td class="r amt-purple">R$ 650,00</td></tr>
+      <tr class="row-purple"><td>Lolek Viagens</td><td>15/09</td><td>Desp. de Viagens</td><td class="r amt-purple">R$ 3.159,12</td></tr>
+      <tr class="row-purple"><td>Victor Hugo Xavier Gonçalves</td><td>15/09</td><td>Bonificações</td><td class="r amt-purple">R$ 500,00</td></tr>
+      <tr class="row-purple"><td>Thiago Rodrigues de Castro</td><td>15/09</td><td>Salários</td><td class="r amt-purple">R$ 2.000,00</td></tr>
+      <tr class="row-purple"><td>Callix</td><td>15/09</td><td>Softwares</td><td class="r amt-purple">R$ 676,00</td></tr>
+      <tr><td>Sixis Gráfica Rápida</td><td>17/09</td><td>Brindes</td><td class="r">R$ 4.000,00</td></tr>
+      <tr><td>Studio MC</td><td>17/09</td><td>Brindes</td><td class="r">R$ 3.000,00</td></tr>
+      <tr><td>Zapsign</td><td>18/09</td><td>Softwares</td><td class="r">R$ 69,90</td></tr>
+      <tr><td>Receita Federal</td><td>18/09</td><td>INSS</td><td class="r">R$ 660,00</td></tr>
+      <tr class="total-row"><td colspan="3">Total a vencer (15–18/09)</td><td class="r">R$ 103.251,87</td></tr>
     </tbody>
   </table>
+  <div class="note">Itens em roxo = fazem parte da folha de pagamento (15/09). Ver aba 🟣 para detalhes.</div>
 </div>
 
 <!-- RECEBIMENTOS -->
-<p class="section-label" style="margin-top:20px;">✅ Recebimentos previstos até 11/09</p>
+<p class="section-label" style="margin-top:20px;">✅ Recebimentos previstos até 18/09</p>
 <div class="card card-green">
   <table>
     <thead>
       <tr><th>Cliente</th><th>Categoria · Data</th><th>Status</th><th class="r">Valor</th></tr>
     </thead>
     <tbody>
-      <tr class="row-atr"><td>Empório Zafferano</td><td>BPO Financeiro · <span class="tag">atr. 03/08</span></td><td><span class="tag tag-red">Cancelou · em tratativa</span></td><td class="r amt-red">R$ 2.500,00</td></tr>
-      <tr class="row-atr"><td>Lojão da Construção</td><td>Consultoria Fin. · <span class="tag">atr. 13/08</span></td><td><span class="tag tag-red">Encerrado · tratativa pgto</span></td><td class="r amt-red">R$ 2.666,66</td></tr>
-      <tr class="row-atr"><td>Goodbe Centro Bem Estar</td><td>Board · <span class="tag">atr. 28/08</span></td><td><span class="tag tag-orange">Previsão dia 14</span></td><td class="r amt-red">R$ 2.083,33</td></tr>
-      <tr class="row-atr"><td>Rafael Cestas</td><td>BPO Financeiro · <span class="tag">atr. 01/09</span></td><td><span class="tag tag-red">Cancelou · em tratativa</span></td><td class="r amt-red">R$ 2.000,00</td></tr>
+      <tr class="row-atr"><td>Empório Zafferano</td><td>BPO Financeiro · <span class="tag">atr. 03/08</span></td><td><span class="tag tag-red">Cancelado · negociando</span></td><td class="r amt-red">R$ 2.500,00</td></tr>
+      <tr class="row-atr"><td>Lojão da Construção</td><td>Consultoria Fin. · <span class="tag">atr. 13/08</span></td><td><span class="tag tag-red">Encerrado · aguard. retorno</span></td><td class="r amt-red">R$ 2.666,66</td></tr>
+      <tr class="row-atr"><td>Goodbe Centro Bem Estar</td><td>Board · <span class="tag">atr. 28/08</span></td><td><span class="tag tag-green">Previsão hoje 14/09</span></td><td class="r amt-red">R$ 2.083,33</td></tr>
+      <tr class="row-atr"><td>Rafael Cestas</td><td>BPO Financeiro · <span class="tag">atr. 01/09</span></td><td><span class="tag tag-red">Cancelado · negociando</span></td><td class="r amt-red">R$ 2.000,00</td></tr>
       <tr class="row-atr"><td>Supermercados Tá Bom</td><td>PAF · <span class="tag">atr. 04/09</span></td><td><span class="tag tag-orange">Cobrança efetuada</span></td><td class="r amt-red">R$ 4.000,00</td></tr>
-      <tr class="row-atr"><td>Pontual Cargas</td><td>Consultoria Start · <span class="tag">atr. 08/09</span></td><td><span class="tag tag-orange">Previsão dia 16</span></td><td class="r amt-red">R$ 3.000,00</td></tr>
+      <tr class="row-atr"><td>Pontual Cargas</td><td>Consultoria Start · <span class="tag">atr. 08/09</span></td><td><span class="tag tag-orange">Previsão 16/09</span></td><td class="r amt-red">R$ 3.000,00</td></tr>
       <tr class="row-atr"><td>YSO da Vitória</td><td>BPO Financeiro · <span class="tag">atr. 08/09</span></td><td><span class="tag tag-orange">Cobrança efetuada</span></td><td class="r amt-red">R$ 2.000,00</td></tr>
-      <tr class="row-atr"><td>Skyfit Várzea</td><td>BPO Financeiro · <span class="tag">atr. 08/09</span></td><td><span class="tag tag-orange">Cobrança efetuada</span></td><td class="r amt-red">R$ 2.000,00</td></tr>
-      <tr class="row-hoje"><td>Eletromóveis Barrinha</td><td>PAF · hoje</td><td><span class="tag tag-orange">Vence hoje</span></td><td class="r amt-green">R$ 2.500,00</td></tr>
-      <tr class="row-hoje"><td>Clínica Zampieri</td><td>PAF · hoje</td><td><span class="tag tag-orange">Vence hoje</span></td><td class="r amt-green">R$ 3.000,00</td></tr>
-      <tr class="row-easyflow"><td>EasyFlow</td><td>EasyFlow · hoje</td><td><span class="tag tag-green">Entra hoje no BTG</span></td><td class="r amt-green">R$ 68.916,69</td></tr>
-      <tr class="total-row"><td colspan="3">Total a receber (incl. atrasados)</td><td class="r amt-green">R$ 91.666,68</td></tr>
+      <tr class="row-atr"><td>Eletromóveis Barrinha</td><td>PAF · <span class="tag">atr. 10/09</span></td><td><span class="tag tag-orange">Cobrança efetuada</span></td><td class="r amt-red">R$ 2.500,00</td></tr>
+      <tr class="row-hoje"><td>Skyfit Caruaru</td><td>BPO Financeiro · hoje</td><td>—</td><td class="r amt-green">R$ 1.250,00</td></tr>
+      <tr class="row-hoje"><td>Skyfit Campina Grande</td><td>BPO Financeiro · hoje</td><td>—</td><td class="r amt-green">R$ 1.250,00</td></tr>
+      <tr class="row-hoje"><td>Skyfit Recife</td><td>BPO Financeiro · hoje</td><td>—</td><td class="r amt-green">R$ 1.250,00</td></tr>
+      <tr class="row-hoje"><td>Lojão da Construção</td><td>Consultoria Fin. · hoje</td><td>—</td><td class="r amt-green">R$ 2.666,66</td></tr>
+      <tr class="row-hoje"><td>Moritz Pneus e Serviços</td><td>Consultoria Scale · hoje</td><td>—</td><td class="r amt-green">R$ 7.000,00</td></tr>
+      <tr class="row-easyflow"><td>EasyFlow</td><td>EasyFlow · hoje</td><td><span class="tag tag-green">Transferência recebida</span></td><td class="r amt-green">R$ 932,93</td></tr>
+      <tr><td>FalconTruck</td><td>Consultoria/Board · 16/09</td><td>—</td><td class="r amt-green">R$ 4.000,00</td></tr>
+      <tr class="total-row"><td colspan="3">Total a receber (incl. atrasados de clientes)</td><td class="r amt-green">R$ 45.916,65</td></tr>
     </tbody>
   </table>
-  <div class="note">Linhas em rosa = em atraso. EasyFlow (verde claro) é o principal ingresso do dia — confirme entrada antes de liberar pagamentos.</div>
+  <div class="note">Linhas em rosa = em atraso. Goodbe com previsão para hoje. Pontual Cargas prevista para 16/09.</div>
 </div>
 
 <!-- RESUMO FINAL -->
-<p class="section-label" style="margin-top:20px;">Resumo consolidado</p>
+<p class="section-label" style="margin-top:20px;">Resumo consolidado da semana</p>
 <div class="card">
   <table>
     <tbody>
-      <tr><td>Saldo atual (BTG)</td><td class="r amt-blue">+ R$ 168,63</td></tr>
-      <tr><td>Recebimentos hoje (clientes + EasyFlow)</td><td class="r amt-green">+ R$ 74.416,69</td></tr>
-      <tr><td>Recebimentos em atraso de clientes</td><td class="r amt-orange">+ R$ 17.249,99</td></tr>
-      <tr><td>Total a pagar hoje + 11/09</td><td class="r amt-red">− R$ 35.993,35</td></tr>
-      <tr class="total-row"><td>Saldo estimado em 11/09 (excl. atrasados fornecedores)</td><td class="r amt-green">+ R$ 38.591,97</td></tr>
+      <tr><td>Saldo atual (BTG)</td><td class="r amt-blue">+ R$ 26.301,78</td></tr>
+      <tr><td>Recebimentos da semana (clientes em dia + EasyFlow)</td><td class="r amt-green">+ R$ 18.349,59</td></tr>
+      <tr><td>Recebimentos em atraso de clientes</td><td class="r amt-orange">+ R$ 25.499,99</td></tr>
+      <tr><td>Total a pagar até 18/09</td><td class="r amt-red">− R$ 103.251,87</td></tr>
+      <tr class="total-row"><td>Saldo estimado em 18/09 (excl. atrasados fornecedores)</td><td class="r amt-red">− R$ 33.100,50</td></tr>
     </tbody>
   </table>
-  <div class="note">⚠️ R$ 282.904,42 em atraso de fornecedores não incluídos — veja aba "Incluindo atrasados".</div>
+  <div class="note">⚠️ R$ 278.015,42 em atraso de fornecedores não incluídos — veja aba "Incluindo atrasados". Folha (R$ 71.450) já está incluída no total a pagar — ver aba 🟣.</div>
 </div>
 
 <script>
